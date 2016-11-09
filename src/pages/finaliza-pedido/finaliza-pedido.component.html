@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Finalizando pedido
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+
+    <ion-card>
+        <ion-item-divider>
+            {{ carro.nome }} - R$ {{ precoTotal }}
+        </ion-item-divider>
+    </ion-card>
+
+    <ion-list>
+        <ion-item>
+            <ion-input [(ngModel)]="pedido.nome" type="text" placeholder="Nome completo"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-input [(ngModel)]="pedido.endereco" type="text" placeholder="Endereço"></ion-input>
+        </ion-item>
+        
+        <ion-item>
+            <ion-input [(ngModel)]="pedido.email" type="text" placeholder="Email"></ion-input>
+        </ion-item>
+    </ion-list>
+
+    <button ion-button block (click)="finalizaPedido()">Realizar um sonho</button>
+</ion-content>

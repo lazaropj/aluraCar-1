@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Carro escolhido
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+    <ion-card>
+        <ion-item-divider>
+            {{ carro.nome }} - R$ {{ carro.preco }}
+        </ion-item-divider>
+        
+        <ion-card-content>
+            <ion-list>
+                <ion-item *ngFor="let acessorio of acessorios">
+                    <ion-label>{{ acessorio.nome }} - R$ {{ acessorio.preco }}</ion-label>
+                    <ion-toggle #toggle color="secondary" checked="false" (ionChange)="atualizaTotal(toggle.checked, acessorio)"></ion-toggle>
+                </ion-item>
+            </ion-list>
+
+            <ion-item-divider>
+                Total a pagar: R$ {{ precoTotal }}
+            </ion-item-divider>
+
+        </ion-card-content>
+    </ion-card>
+    <button ion-button block (click)="finalizaPedido()">Finaliza pedido</button>
+    
+
+</ion-content>

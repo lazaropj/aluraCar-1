@@ -1,0 +1,11 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      AluraCar
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-item (click)="exibe($event, carro)" *ngFor="let carro of carros">{{ carro.nome }} - R$ {{ carro.preco }} </ion-item>
+</ion-content>
