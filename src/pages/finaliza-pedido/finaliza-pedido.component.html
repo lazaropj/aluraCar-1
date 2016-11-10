@@ -8,24 +8,26 @@
 
 
 <ion-content>
-
-    <ion-card>
-        <ion-item-divider>
-            {{ carro.nome }} - R$ {{ precoTotal }}
-        </ion-item-divider>
-    </ion-card>
-
+    
     <ion-list>
+        <ion-list-header>
+            {{ carro.nome }}
+            <br>
+            {{ carro.preco | currency:'BRL':true}}
+        </ion-list-header>
         <ion-item>
-            <ion-input [(ngModel)]="pedido.nome" type="text" placeholder="Nome completo"></ion-input>
+            <ion-label stacked>Nome</ion-label>
+            <ion-input [(ngModel)]="pedido.nome" type="text"></ion-input>
         </ion-item>
 
         <ion-item>
-            <ion-input [(ngModel)]="pedido.endereco" type="text" placeholder="Endereço"></ion-input>
+            <ion-label stacked>Endereço</ion-label>
+            <ion-input [(ngModel)]="pedido.endereco" type="text"></ion-input>
         </ion-item>
         
         <ion-item>
-            <ion-input [(ngModel)]="pedido.email" type="text" placeholder="Email"></ion-input>
+            <ion-label stacked>E-mail</ion-label>
+            <ion-input [(ngModel)]="pedido.email" type="text"></ion-input>
         </ion-item>
     </ion-list>
 

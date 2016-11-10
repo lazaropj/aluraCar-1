@@ -7,27 +7,26 @@
 </ion-header>
 
 <ion-content>
-
     <ion-card>
-        <ion-item-divider>
-            {{ carro.nome }} - R$ {{ carro.preco }}
-        </ion-item-divider>
-        
-        <ion-card-content>
+        <ion-card-content>    
             <ion-list>
+                <ion-item-divider>
+                    {{ carro.nome }}
+                    <br>
+                    {{ carro.preco | currency:'BRL':true}}        
+                </ion-item-divider>
                 <ion-item *ngFor="let acessorio of acessorios">
-                    <ion-label>{{ acessorio.nome }} - R$ {{ acessorio.preco }}</ion-label>
+                    <ion-label>
+                        <h2>{{ acessorio.nome }}</h2>
+                        <h3>{{ acessorio.preco | currency:'BRL':true }}</h3>
+                    </ion-label>
                     <ion-toggle #toggle color="secondary" checked="false" (ionChange)="atualizaTotal(toggle.checked, acessorio)"></ion-toggle>
                 </ion-item>
+                <ion-item-divider>
+                    TOTAL: {{ precoTotal | currency:'BRL':true}}        
+                </ion-item-divider>
             </ion-list>
-
-            <ion-item-divider>
-                Total a pagar: R$ {{ precoTotal }}
-            </ion-item-divider>
-
         </ion-card-content>
+        <button ion-button block (click)="finalizaPedido()">FINALIZAR PEDIDO</button>
     </ion-card>
-    <button ion-button block (click)="finalizaPedido()">Finaliza pedido</button>
-    
-
 </ion-content>
