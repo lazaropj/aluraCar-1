@@ -3,6 +3,7 @@ import { Acessorio } from './acessorio';
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import { Observable } from 'rxjs';
+import { Pedido } from './pedido';
 
 @Injectable()
 export class CarroService {
@@ -46,5 +47,11 @@ export class CarroService {
     obterAcessorios(): Acessorio[] {
         
         return this._acessorios;
+    }
+
+    salvarPedido(pedido: Pedido) {
+
+        return this._http
+            .get(this._url + `/salvarpedido?salvarpedido?carro=${pedido.carro.nome}&preco=${pedido.valor}&nome=${pedido.nome}&endereco=${pedido.endereco}&email=${pedido.email}`);
     }
 }

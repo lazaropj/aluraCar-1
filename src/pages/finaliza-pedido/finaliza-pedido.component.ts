@@ -21,15 +21,24 @@ export class FinalizaPedido {
     }
 
     finalizaPedido(): void {
+        console.log(this.pedido);
+        this._service
+            .salvarPedido(this.pedido)
+            .subscribe(() => {
 
-        this._alertCtrl.create({
-            title: 'Parabéns!',
-            subTitle: 'Você acaba de comprar um carro',
-            buttons: [{
-                text: 'OK',
-                handler: () => this._navCtrl.setRoot(HomePage)
-            }],
-        })
-        .present()     
+                this._alertCtrl.create({
+                    title: 'Parabéns!',
+                    subTitle: 'Você acaba de comprar um carro',
+                    buttons: [{
+                        text: 'OK',
+                        handler: () => this._navCtrl.setRoot(HomePage)
+                    }],
+                }).present()                 
+            }, erro => {
+                this._alertCtrl.create({
+                    title: 'Deu erro',
+                    subTitle: 'Campos obrigatórios'
+                }).present()   
+            });
     }
 }
